@@ -1,17 +1,18 @@
 package cat.itacademy.s04.t02.n03.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@Entity
-@Table(name = "fruit")
+
+
+@Document(collection = "Fruits")
+@Configuration
+@EnableMongoRepositories(basePackages = "cat.itacademy.s04.t02.n03")
 public class Fruit {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private int kiloQuantity;
